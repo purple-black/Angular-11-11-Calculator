@@ -1,0 +1,114 @@
+.keyboard-container {
+  font-family: 'Outfit', 'Inter', system-ui, sans-serif;
+}
+
+// Base button styles
+.btn {
+  height: 3rem; // 48px standard touch targets
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  user-select: none;
+  outline: none;
+
+  &:active {
+    transform: scale(0.93);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+  }
+
+  &:focus-visible {
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.5);
+    border-color: rgba(139, 92, 246, 0.6);
+  }
+}
+
+// Scientific buttons
+.btn-sci {
+  background: rgba(30, 41, 59, 0.5);
+  color: #94a3b8;
+  font-size: 0.95rem;
+
+  &:hover {
+    background: rgba(30, 41, 59, 0.8);
+    color: #e2e8f0;
+  }
+}
+
+// Number buttons
+.btn-num {
+  background: rgba(255, 255, 255, 0.05);
+  color: #f8fafc;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.12);
+  }
+}
+
+// Operator buttons
+.btn-operator {
+  background: rgba(139, 92, 246, 0.15);
+  color: #c084fc;
+  font-size: 1.3rem;
+
+  &:hover {
+    background: rgba(139, 92, 246, 0.3);
+    color: #faf5ff;
+  }
+}
+
+// Action buttons (C, CE, Backspace)
+.btn-action {
+  background: rgba(244, 63, 94, 0.1);
+  color: #fb7185;
+
+  &:hover {
+    background: rgba(244, 63, 94, 0.2);
+    color: #fff1f2;
+  }
+}
+
+// Grouping buttons (parentheses)
+.btn-group {
+  background: rgba(45, 212, 191, 0.1);
+  color: #2dd4bf;
+
+  &:hover {
+    background: rgba(45, 212, 191, 0.2);
+    color: #f0fdfa;
+  }
+}
+
+// Equal button (highly stylized glowing action)
+.btn-equal {
+  background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(109, 40, 217, 0.3);
+  font-size: 1.3rem;
+  border: none;
+
+  &:hover {
+    box-shadow: 0 6px 16px rgba(109, 40, 217, 0.5);
+    filter: brightness(1.1);
+  }
+}
+
+// Transition animations
+.animate-fade-in {
+  animation: fadeIn 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
