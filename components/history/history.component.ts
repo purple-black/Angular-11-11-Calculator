@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { HistoryItem } from '../../models/calculator.interfaces';
 
 @Component({
   selector: 'calculator-history',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './history.component.html',
   styleUrls: ['./history.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush

@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'calculator-display',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './display.component.html',
   styleUrls: ['./display.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush

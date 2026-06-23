@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'calculator-keyboard',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './keyboard.component.html',
   styleUrls: ['./keyboard.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush

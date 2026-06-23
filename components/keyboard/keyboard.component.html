@@ -1,15 +1,16 @@
 <div class="keyboard-container flex flex-col gap-3 w-full">
   <!-- Scientific Panel -->
-  <div 
-    *ngIf="showScientific" 
-    class="scientific-grid grid grid-cols-3 gap-2.5 animate-fade-in">
-    <button (click)="onKeyClick('sin')" class="btn btn-sci" aria-label="sine">sin</button>
-    <button (click)="onKeyClick('cos')" class="btn btn-sci" aria-label="cosine">cos</button>
-    <button (click)="onKeyClick('tan')" class="btn btn-sci" aria-label="tangent">tan</button>
-    <button (click)="onKeyClick('log')" class="btn btn-sci" aria-label="logarithm base 10">log</button>
-    <button (click)="onKeyClick('ln')" class="btn btn-sci" aria-label="natural logarithm">ln</button>
-    <button (click)="onKeyClick('√')" class="btn btn-sci" aria-label="square root">√</button>
-  </div>
+  @if (showScientific) {
+    <div
+      class="scientific-grid grid grid-cols-3 gap-2.5 animate-fade-in">
+      <button (click)="onKeyClick('sin')" class="btn btn-sci" aria-label="sine">sin</button>
+      <button (click)="onKeyClick('cos')" class="btn btn-sci" aria-label="cosine">cos</button>
+      <button (click)="onKeyClick('tan')" class="btn btn-sci" aria-label="tangent">tan</button>
+      <button (click)="onKeyClick('log')" class="btn btn-sci" aria-label="logarithm base 10">log</button>
+      <button (click)="onKeyClick('ln')" class="btn btn-sci" aria-label="natural logarithm">ln</button>
+      <button (click)="onKeyClick('√')" class="btn btn-sci" aria-label="square root">√</button>
+    </div>
+  }
 
   <!-- Standard Keypad -->
   <div class="standard-grid grid grid-cols-4 gap-2.5">
@@ -45,12 +46,12 @@
     <button (click)="onKeyClick('(')" class="btn btn-group" aria-label="open parenthesis">(</button>
     <button (click)="onKeyClick('0')" class="btn btn-num" aria-label="zero">0</button>
     <button (click)="onKeyClick(')')" class="btn btn-group" aria-label="close parenthesis">)</button>
-    <button 
-      (click)="onKeyClick('.')" 
-      class="btn btn-num" 
+    <button
+      (click)="onKeyClick('.')"
+      class="btn btn-num"
       [disabled]="disableDecimals"
       [class.opacity-40]="disableDecimals"
-      aria-label="decimal point">.</button>
+    aria-label="decimal point">.</button>
 
     <!-- Row 6 -->
     <button (click)="onKeyClick('=')" class="btn btn-equal col-span-4" aria-label="equals">=</button>
