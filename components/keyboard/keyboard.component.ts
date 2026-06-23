@@ -2,12 +2,11 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
 
 
 @Component({
-  selector: 'calculator-keyboard',
-  standalone: true,
-  imports: [],
-  templateUrl: './keyboard.component.html',
-  styleUrls: ['./keyboard.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'calculator-keyboard',
+    imports: [],
+    templateUrl: './keyboard.component.html',
+    styleUrls: ['./keyboard.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class KeyboardComponent {
   @Input() disableDecimals: boolean = false;

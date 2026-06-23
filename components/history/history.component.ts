@@ -3,12 +3,11 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
 import { HistoryItem } from '../../models/calculator.interfaces';
 
 @Component({
-  selector: 'calculator-history',
-  standalone: true,
-  imports: [],
-  templateUrl: './history.component.html',
-  styleUrls: ['./history.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'calculator-history',
+    imports: [],
+    templateUrl: './history.component.html',
+    styleUrls: ['./history.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HistoryComponent {
   @Input() history: HistoryItem[] = [];

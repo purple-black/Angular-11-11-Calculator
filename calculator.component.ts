@@ -8,13 +8,12 @@ import { KeyboardComponent } from './components/keyboard/keyboard.component';
 import { HistoryComponent } from './components/history/history.component';
 
 @Component({
-  selector: 'calculator-app',
-  standalone: true,
-  imports: [CommonModule, DisplayComponent, KeyboardComponent, HistoryComponent],
-  providers: [CalculatorService],
-  templateUrl: './calculator.component.html',
-  styleUrls: ['./calculator.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'calculator-app',
+    imports: [CommonModule, DisplayComponent, KeyboardComponent, HistoryComponent],
+    providers: [CalculatorService],
+    templateUrl: './calculator.component.html',
+    styleUrls: ['./calculator.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CalculatorComponent implements OnInit, OnChanges {
   @Input() config: CalculatorConfig = {};
