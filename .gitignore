@@ -5,3 +5,6 @@
 /out-tsc
 /.angular
 /.cache
+# Editor / OS files
+.vscode/
+.DS_Store
