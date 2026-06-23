@@ -1,5 +1,5 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { Component } from '@angular/core';
+import { Component, provideZoneChangeDetection } from '@angular/core';
 import { CalculatorComponent } from '../calculator.component';
 import { CalculatorConfig } from '../models/calculator.interfaces';
 
@@ -23,5 +23,5 @@ export class AppComponent {
   };
 }
 
-bootstrapApplication(AppComponent)
+bootstrapApplication(AppComponent, {providers: [provideZoneChangeDetection()]})
   .catch((err: any) => console.error(err));
