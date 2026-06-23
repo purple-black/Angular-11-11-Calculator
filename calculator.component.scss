@@ -1,0 +1,55 @@
+:host {
+  display: block;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+.calculator-app-container {
+  @apply flex relative overflow-hidden rounded-3xl w-full max-w-sm md:max-w-4xl h-[700px] border border-slate-800/80 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 shadow-2xl text-white select-none;
+  font-family: 'Outfit', 'Inter', system-ui, sans-serif;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  background-size: 200% 200%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.calculator-main {
+  @apply flex flex-col flex-1 p-6 h-full justify-between z-10 transition-all duration-300;
+}
+
+.calculator-header {
+  @apply flex items-center justify-between mb-4;
+}
+
+.calculator-title {
+  @apply text-xl font-bold tracking-tight bg-gradient-to-r from-violet-400 to-indigo-400 bg-clip-text text-transparent;
+}
+
+.calculator-header-actions {
+  @apply flex items-center gap-2.5;
+}
+
+.mode-toggle {
+  @apply px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider bg-slate-800/60 border border-slate-700/50 hover:bg-slate-800 hover:border-slate-600 transition-all active:scale-95 duration-100;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.history-toggle {
+  @apply p-2 rounded-lg bg-slate-800/60 border border-slate-700/50 hover:bg-slate-800 hover:border-slate-600 text-slate-300 hover:text-white transition-all active:scale-95 duration-100;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+  }
+}
