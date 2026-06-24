@@ -1,0 +1,1 @@
+An interactive scientific calculator built with Angular 21, RxJS, and Tailwind CSS. It supports standard pocket-calculator execution, strict BODMAS/algebraic parsing, evaluation history log management, and full keyboard/touch-device compatibility.
