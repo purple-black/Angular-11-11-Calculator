@@ -1,0 +1,57 @@
+@if (state$ | async; as state) {
+  <div
+    class="calculator-app-container">
+    <!-- Main Calculator body -->
+    <div
+      class="calculator-main"
+      [class.md:pr-80]="isHistoryOpen && config.enableHistory">
+      <!-- Top Action bar -->
+      <div class="calculator-header">
+        <h1 class="calculator-title">11:11 Calculator</h1>
+        <div class="calculator-header-actions">
+          <!-- Angle toggle: deg/rad -->
+          <button
+            (click)="onToggleAngleMode()"
+            class="mode-toggle"
+            title="Toggle Angle Unit">
+            {{ state.angleMode }}
+          </button>
+          <!-- History log toggle -->
+          @if (config.enableHistory) {
+            <button
+              (click)="toggleHistory()"
+              class="history-toggle"
+              title="Toggle History Log"
+              aria-label="history log toggle">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </button>
+          }
+        </div>
+      </div>
+      <!-- Screen Display -->
+      <calculator-display
+        [expression]="state.expression"
+        [value]="state.currentInput"
+        [error]="state.error">
+      </calculator-display>
+      <!-- Keypad Grid -->
+      <calculator-keyboard
+        [disableDecimals]="!config.allowDecimals"
+        [showScientific]="!!config.enableScientific"
+        (keyAction)="handleKeyAction($event)">
+      </calculator-keyboard>
+    </div>
+    <!-- History Drawer -->
+    @if (config.enableHistory) {
+      <calculator-history
+        [history]="state.history"
+        [isVisible]="isHistoryOpen"
+        (selectItem)="onSelectHistoryItem($event)"
+        (clearHistory)="onClearHistory()"
+        (closePanel)="isHistoryOpen = false">
+      </calculator-history>
+    }
+  </div>
+}

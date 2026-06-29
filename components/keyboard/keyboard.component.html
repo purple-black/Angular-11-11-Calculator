@@ -1,0 +1,62 @@
+<div class="keyboard-container flex flex-col md:flex-row gap-3 md:gap-4 w-full">
+  <!-- Scientific Panel -->
+  @if (showScientific) {
+    <div
+      class="scientific-grid grid grid-cols-3 md:grid-cols-1 gap-2.5 md:gap-3 md:w-1/5 animate-fade-in">
+      <button (click)="onKeyClick('sin')" class="btn btn-sci" aria-label="sine">sin</button>
+      <button (click)="onKeyClick('cos')" class="btn btn-sci" aria-label="cosine">cos</button>
+      <button (click)="onKeyClick('tan')" class="btn btn-sci" aria-label="tangent">tan</button>
+      <button (click)="onKeyClick('log')" class="btn btn-sci" aria-label="logarithm base 10">log</button>
+      <button (click)="onKeyClick('ln')" class="btn btn-sci" aria-label="natural logarithm">ln</button>
+      <button (click)="onKeyClick('√')" class="btn btn-sci" aria-label="square root">√</button>
+    </div>
+  }
+
+  <!-- Standard Keypad -->
+  <div 
+    class="standard-grid grid grid-cols-4 gap-2.5 md:gap-3"
+    [class.w-full]="!showScientific"
+    [class.md:w-4/5]="showScientific">
+    <!-- Row 1 -->
+    <button (click)="onKeyClick('C')" class="btn btn-action btn-clear" aria-label="clear expression">C</button>
+    <button (click)="onKeyClick('CE')" class="btn btn-action btn-clear-entry" aria-label="clear entry">CE</button>
+    <button (click)="onKeyClick('⌫')" class="btn btn-action btn-backspace flex items-center justify-center" aria-label="backspace">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2M3 12l6.414-6.414A2 2 0 0110.828 5H20a2 2 0 012 2v10a2 2 0 01-2 2h-9.172a2 2 0 01-1.414-.586L3 12z" />
+      </svg>
+    </button>
+    <button (click)="onKeyClick('/')" class="btn btn-operator" aria-label="divide">÷</button>
+
+    <!-- Row 2 -->
+    <button (click)="onKeyClick('7')" class="btn btn-num" aria-label="seven">7</button>
+    <button (click)="onKeyClick('8')" class="btn btn-num" aria-label="eight">8</button>
+    <button (click)="onKeyClick('9')" class="btn btn-num" aria-label="nine">9</button>
+    <button (click)="onKeyClick('*')" class="btn btn-operator" aria-label="multiply">×</button>
+
+    <!-- Row 3 -->
+    <button (click)="onKeyClick('4')" class="btn btn-num" aria-label="four">4</button>
+    <button (click)="onKeyClick('5')" class="btn btn-num" aria-label="five">5</button>
+    <button (click)="onKeyClick('6')" class="btn btn-num" aria-label="six">6</button>
+    <button (click)="onKeyClick('-')" class="btn btn-operator" aria-label="subtract">-</button>
+
+    <!-- Row 4 -->
+    <button (click)="onKeyClick('1')" class="btn btn-num" aria-label="one">1</button>
+    <button (click)="onKeyClick('2')" class="btn btn-num" aria-label="two">2</button>
+    <button (click)="onKeyClick('3')" class="btn btn-num" aria-label="three">3</button>
+    <button (click)="onKeyClick('+')" class="btn btn-operator" aria-label="add">+</button>
+
+    <!-- Row 5 -->
+    <button (click)="onKeyClick('(')" class="btn btn-group" aria-label="open parenthesis">(</button>
+    <button (click)="onKeyClick('0')" class="btn btn-num" aria-label="zero">0</button>
+    <button (click)="onKeyClick(')')" class="btn btn-group" aria-label="close parenthesis">)</button>
+    <button
+      (click)="onKeyClick('.')"
+      class="btn btn-num"
+      [disabled]="disableDecimals"
+      [class.opacity-40]="disableDecimals"
+    aria-label="decimal point">.</button>
+
+    <!-- Row 6 -->
+    <button (click)="onKeyClick('=')" class="btn btn-equal col-span-4" aria-label="equals">=</button>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="display-container">
+  <!-- Expression Display -->
+  <div class="expression-line">
+    {{ expression }}
+  </div>
+
+  <!-- Active Value / Result Display -->
+  <div 
+    class="value-line scrollbar-thin"
+    [class.error-text]="error">
+    {{ error || value }}
+  </div>
+</div>

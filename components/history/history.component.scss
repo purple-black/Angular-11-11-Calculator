@@ -1,0 +1,61 @@
+.history-panel {
+  @apply flex flex-col h-full bg-slate-950/95 border-l border-slate-800/80 backdrop-blur-xl transition-all duration-300 ease-in-out z-50 overflow-hidden w-full md:w-80 shadow-2xl;
+  font-family: 'Outfit', 'Inter', system-ui, sans-serif;
+  height: 100%;
+  
+  // Mobile vs Desktop styling handles
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.history-header {
+  @apply flex items-center justify-between p-4 border-b border-slate-800/60;
+}
+
+.history-list {
+  @apply flex-1 overflow-y-auto p-4 space-y-3;
+}
+
+.empty-state {
+  @apply flex flex-col items-center justify-center h-48 text-slate-500 text-sm font-medium gap-2 text-center;
+}
+
+.history-item {
+  @apply flex flex-col p-3 rounded-xl bg-slate-900/50 hover:bg-slate-900 border border-slate-800/40 hover:border-slate-700/60 cursor-pointer select-none transition-all duration-150 active:scale-[0.98];
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+.item-expression {
+  @apply text-sm text-slate-400 text-right truncate;
+}
+
+.item-result {
+  @apply text-base font-semibold text-white text-right truncate mt-1;
+}
+
+// Custom scrollbar
+.scrollbar-thin {
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+}

@@ -1,0 +1,69 @@
+<div
+  class="history-panel"
+  [class.translate-x-0]="isVisible"
+  [class.translate-x-full]="!isVisible">
+
+  <!-- History Header -->
+  <div class="history-header">
+    <div class="flex items-center gap-2">
+      <span class="text-white font-semibold text-lg tracking-wide">History</span>
+    </div>
+
+    <div class="flex items-center gap-3">
+      <!-- Clear History Button -->
+      @if (history.length > 0) {
+        <button
+          (click)="onClear()"
+          class="icon-btn text-rose-400 hover:text-rose-300 transition-colors p-1.5 rounded-lg hover:bg-rose-500/10"
+          title="Clear History"
+          aria-label="clear history">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+          </svg>
+        </button>
+      }
+
+      <!-- Close Drawer Button -->
+      <button
+        (click)="onClose()"
+        class="icon-btn text-slate-400 hover:text-white transition-colors p-1.5 rounded-lg hover:bg-slate-800"
+        title="Close Panel"
+        aria-label="close history panel">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- History List Content -->
+  <div class="history-list scrollbar-thin">
+    @if (history.length === 0) {
+      <div class="empty-state">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <p>No calculation history yet.</p>
+      </div>
+    }
+
+    <!-- History Rows -->
+    @for (item of history; track item) {
+      <div
+        (click)="onSelect(item)"
+        class="history-item"
+        role="button"
+        tabindex="0"
+        [attr.aria-label]="'Reuse expression ' + item.expression + ' result ' + item.result">
+        <!-- Expression -->
+        <div class="item-expression">
+          {{ item.expression }}
+        </div>
+        <!-- Result -->
+        <div class="item-result">
+          = {{ item.result }}
+        </div>
+      </div>
+    }
+  </div>
+</div>
