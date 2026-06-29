@@ -1,8 +1,8 @@
-<div class="keyboard-container flex flex-col gap-3 w-full">
+<div class="keyboard-container flex flex-col md:flex-row gap-3 md:gap-4 w-full">
   <!-- Scientific Panel -->
   @if (showScientific) {
     <div
-      class="scientific-grid grid grid-cols-3 gap-2.5 animate-fade-in">
+      class="scientific-grid grid grid-cols-3 md:grid-cols-1 gap-2.5 md:gap-3 md:w-1/5 animate-fade-in">
       <button (click)="onKeyClick('sin')" class="btn btn-sci" aria-label="sine">sin</button>
       <button (click)="onKeyClick('cos')" class="btn btn-sci" aria-label="cosine">cos</button>
       <button (click)="onKeyClick('tan')" class="btn btn-sci" aria-label="tangent">tan</button>
@@ -13,7 +13,10 @@
   }
 
   <!-- Standard Keypad -->
-  <div class="standard-grid grid grid-cols-4 gap-2.5">
+  <div 
+    class="standard-grid grid grid-cols-4 gap-2.5 md:gap-3"
+    [class.w-full]="!showScientific"
+    [class.md:w-4/5]="showScientific">
     <!-- Row 1 -->
     <button (click)="onKeyClick('C')" class="btn btn-action btn-clear" aria-label="clear expression">C</button>
     <button (click)="onKeyClick('CE')" class="btn btn-action btn-clear-entry" aria-label="clear entry">CE</button>

@@ -1,11 +1,18 @@
 :host {
   display: block;
+  width: 100%;
+  max-width: 30rem;
+
+  @media (min-width: 768px) {
+    width: 200%;
+    max-width: 90%;
+  }
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 
 .calculator-app-container {
-  @apply flex relative overflow-hidden rounded-3xl w-full max-w-sm md:max-w-4xl h-[700px] border border-slate-800/80 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 shadow-2xl text-white select-none;
+  @apply flex relative overflow-hidden rounded-3xl w-full h-[660px] md:h-[780px] border border-slate-800/80 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 shadow-2xl text-white select-none;
   font-family: 'Outfit', 'Inter', system-ui, sans-serif;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   background-size: 200% 200%;
