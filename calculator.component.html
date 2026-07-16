@@ -13,7 +13,9 @@
           <button
             (click)="onToggleAngleMode()"
             class="mode-toggle"
-            title="Toggle Angle Unit">
+            title="Toggle Angle Unit"
+            [attr.aria-label]="'Angle mode, currently ' + state.angleMode + '. Toggle degree or radian.'"
+            [attr.aria-pressed]="state.angleMode === 'rad'">
             {{ state.angleMode }}
           </button>
           <!-- History log toggle -->
