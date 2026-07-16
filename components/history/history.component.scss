@@ -23,8 +23,12 @@
 }
 
 .history-item {
-  @apply flex flex-col p-3 rounded-xl bg-slate-900/50 hover:bg-slate-900 border border-slate-800/40 hover:border-slate-700/60 cursor-pointer select-none transition-all duration-150 active:scale-[0.98];
+  @apply flex flex-col w-full p-3 rounded-xl bg-slate-900/50 hover:bg-slate-900 border border-slate-800/40 hover:border-slate-700/60 cursor-pointer select-none transition-all duration-150 active:scale-[0.98];
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  appearance: none;
+  text-align: inherit;
+  font: inherit;
+  color: inherit;
 
   &:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -32,6 +36,11 @@
 
   &:active {
     transform: scale(0.97);
+  }
+
+  &:focus-visible {
+    outline: 2px solid rgba(139, 92, 246, 0.6);
+    outline-offset: 2px;
   }
 }
 

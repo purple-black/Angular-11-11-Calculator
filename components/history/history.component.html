@@ -49,21 +49,20 @@
 
     <!-- History Rows -->
     @for (item of history; track item) {
-      <div
+      <button
+        type="button"
         (click)="onSelect(item)"
         class="history-item"
-        role="button"
-        tabindex="0"
         [attr.aria-label]="'Reuse expression ' + item.expression + ' result ' + item.result">
         <!-- Expression -->
-        <div class="item-expression">
+        <span class="item-expression">
           {{ item.expression }}
-        </div>
+        </span>
         <!-- Result -->
-        <div class="item-result">
+        <span class="item-result">
           = {{ item.result }}
-        </div>
-      </div>
+        </span>
+      </button>
     }
   </div>
 </div>
