@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, HostListener, effect, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, effect, input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
 import { CalculatorConfig, CalculatorState, HistoryItem } from './models/calculator.interfaces';
@@ -13,6 +13,9 @@ import { HistoryComponent } from './components/history/history.component';
     providers: [CalculatorService],
     templateUrl: './calculator.component.html',
     styleUrls: ['./calculator.component.scss'],
+    host: {
+      '(window:keydown)': 'handleKeyboardEvent($event)'
+    },
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CalculatorComponent {
@@ -34,7 +37,6 @@ export class CalculatorComponent {
   /**
    * Capture and route physical keyboard inputs
    */
-  @HostListener('window:keydown', ['$event'])
   public handleKeyboardEvent(event: KeyboardEvent): void {
     const activeElement = document.activeElement;
     if (activeElement && (activeElement.tagName === 'INPUT' || activeElement.tagName === 'TEXTAREA')) {
