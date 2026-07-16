@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, HostListener, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener, effect, input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
 import { CalculatorConfig, CalculatorState, HistoryItem } from './models/calculator.interfaces';
@@ -15,26 +15,20 @@ import { HistoryComponent } from './components/history/history.component';
     styleUrls: ['./calculator.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CalculatorComponent implements OnInit, OnChanges {
-  @Input() config: CalculatorConfig = {};
+export class CalculatorComponent {
+  readonly config = input<CalculatorConfig>({});
 
-  @Output() telemetryUpdate = new EventEmitter<{ action: string, value: string }>();
+  readonly telemetryUpdate = output<{ action: string, value: string }>();
 
   public state$: Observable<CalculatorState>;
   public isHistoryOpen: boolean = false;
 
   constructor(private calculatorService: CalculatorService) {
     this.state$ = this.calculatorService.state$;
-  }
 
-  public ngOnInit(): void {
-    this.calculatorService.setConfig(this.config);
-  }
-
-  public ngOnChanges(changes: SimpleChanges): void {
-    if (changes['config'] && !changes['config'].isFirstChange()) {
-      this.calculatorService.setConfig(this.config);
-    }
+    effect(() => {
+      this.calculatorService.setConfig(this.config());
+    });
   }
 
   /**

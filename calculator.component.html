@@ -4,7 +4,7 @@
     <!-- Main Calculator body -->
     <div
       class="calculator-main"
-      [class.md:pr-80]="isHistoryOpen && config.enableHistory">
+      [class.md:pr-80]="isHistoryOpen && config().enableHistory">
       <!-- Top Action bar -->
       <div class="calculator-header">
         <h1 class="calculator-title">11:11 Calculator</h1>
@@ -17,7 +17,7 @@
             {{ state.angleMode }}
           </button>
           <!-- History log toggle -->
-          @if (config.enableHistory) {
+          @if (config().enableHistory) {
             <button
               (click)="toggleHistory()"
               class="history-toggle"
@@ -38,13 +38,13 @@
       </calculator-display>
       <!-- Keypad Grid -->
       <calculator-keyboard
-        [disableDecimals]="!config.allowDecimals"
-        [showScientific]="!!config.enableScientific"
+        [disableDecimals]="!config().allowDecimals"
+        [showScientific]="!!config().enableScientific"
         (keyAction)="handleKeyAction($event)">
       </calculator-keyboard>
     </div>
     <!-- History Drawer -->
-    @if (config.enableHistory) {
+    @if (config().enableHistory) {
       <calculator-history
         [history]="state.history"
         [isVisible]="isHistoryOpen"

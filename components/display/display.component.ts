@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 
 @Component({
@@ -9,7 +9,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DisplayComponent {
-  @Input() expression: string = '';
-  @Input() value: string = '0';
-  @Input() error: string | null = null;
+  readonly expression = input<string>('');
+  readonly value = input<string>('0');
+  readonly error = input<string | null>(null);
 }

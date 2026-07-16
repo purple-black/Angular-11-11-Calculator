@@ -1,16 +1,16 @@
 <div class="display-container" role="region" aria-label="Calculator display">
   <!-- Expression Display -->
   <div class="expression-line" aria-hidden="true">
-    {{ expression }}
+    {{ expression() }}
   </div>
 
   <!-- Active Value / Result Display -->
   <div
     class="value-line scrollbar-thin"
-    [class.error-text]="error"
+    [class.error-text]="error()"
     role="status"
     aria-live="polite"
     aria-atomic="true">
-    {{ error || value }}
+    {{ error() || value() }}
   </div>
 </div>

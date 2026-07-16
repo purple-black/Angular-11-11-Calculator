@@ -21,11 +21,11 @@ describe('CalculatorComponent', () => {
 
     fixture = TestBed.createComponent(CalculatorComponent);
     component = fixture.componentInstance;
-    component.config = {
+    fixture.componentRef.setInput('config', {
       enableHistory: true,
       enableScientific: true,
       allowDecimals: true
-    };
+    });
     fixture.detectChanges();
   });
 
@@ -83,6 +83,6 @@ describe('CalculatorComponent', () => {
     fixture.detectChanges();
     const historyDrawer = fixture.debugElement.query(By.directive(HistoryComponent));
     expect(historyDrawer).toBeTruthy();
-    expect(historyDrawer.componentInstance.isVisible).toBeTrue();
+    expect(historyDrawer.componentInstance.isVisible()).toBeTrue();
   });
 });

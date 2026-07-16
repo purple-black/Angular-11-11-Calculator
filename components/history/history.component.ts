@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 
 import { HistoryItem } from '../../models/calculator.interfaces';
 
@@ -10,12 +10,12 @@ import { HistoryItem } from '../../models/calculator.interfaces';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HistoryComponent {
-  @Input() history: HistoryItem[] = [];
-  @Input() isVisible: boolean = false;
+  readonly history = input<HistoryItem[]>([]);
+  readonly isVisible = input<boolean>(false);
 
-  @Output() selectItem = new EventEmitter<HistoryItem>();
-  @Output() clearHistory = new EventEmitter<void>();
-  @Output() closePanel = new EventEmitter<void>();
+  readonly selectItem = output<HistoryItem>();
+  readonly clearHistory = output<void>();
+  readonly closePanel = output<void>();
 
   public onSelect(item: HistoryItem): void {
     this.selectItem.emit(item);

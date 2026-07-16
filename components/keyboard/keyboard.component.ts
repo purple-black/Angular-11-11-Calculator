@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 
 
 @Component({
@@ -9,10 +9,10 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class KeyboardComponent {
-  @Input() disableDecimals: boolean = false;
-  @Input() showScientific: boolean = true;
+  readonly disableDecimals = input<boolean>(false);
+  readonly showScientific = input<boolean>(true);
 
-  @Output() keyAction = new EventEmitter<string>();
+  readonly keyAction = output<string>();
 
   public onKeyClick(key: string): void {
     this.keyAction.emit(key);
