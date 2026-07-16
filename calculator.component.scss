@@ -3,6 +3,28 @@
   width: 100%;
   max-width: 30rem;
 
+  /* Design tokens — teal accent (avoids generic purple AI default) */
+  --calc-accent: #14b8a6;
+  --calc-accent-strong: #0f766e;
+  --calc-accent-soft: rgba(20, 184, 166, 0.15);
+  --calc-accent-soft-hover: rgba(20, 184, 166, 0.3);
+  --calc-accent-text: #5eead4;
+  --calc-accent-glow: rgba(15, 118, 110, 0.35);
+  --calc-accent-glow-strong: rgba(15, 118, 110, 0.55);
+  --calc-focus-ring: rgba(20, 184, 166, 0.5);
+  --calc-surface: #0b1220;
+  --calc-surface-mid: #0f172a;
+  --calc-surface-elevated: #1e293b;
+  --calc-border: rgba(51, 65, 85, 0.8);
+  --calc-text: #f8fafc;
+  --calc-text-muted: #94a3b8;
+  --calc-danger: #fb7185;
+  --calc-danger-soft: rgba(244, 63, 94, 0.1);
+  --calc-danger-soft-hover: rgba(244, 63, 94, 0.2);
+  --calc-group: #2dd4bf;
+  --calc-group-soft: rgba(45, 212, 191, 0.1);
+  --calc-group-soft-hover: rgba(45, 212, 191, 0.2);
+
   @media (min-width: 768px) {
     width: 200%;
     max-width: 90%;
@@ -12,8 +34,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 
 .calculator-app-container {
-  @apply flex relative overflow-hidden rounded-3xl w-full h-[660px] md:h-[780px] border border-slate-800/80 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 shadow-2xl text-white select-none;
+  @apply flex relative overflow-hidden rounded-3xl w-full h-[660px] md:h-[780px] shadow-2xl select-none;
   font-family: 'Outfit', 'Inter', system-ui, sans-serif;
+  color: var(--calc-text);
+  border: 1px solid var(--calc-border);
+  background: linear-gradient(
+    135deg,
+    var(--calc-surface-elevated) 0%,
+    var(--calc-surface) 45%,
+    var(--calc-surface-mid) 100%
+  );
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   background-size: 200% 200%;
   animation: gradientBG 15s ease infinite;
@@ -34,7 +64,12 @@
 }
 
 .calculator-title {
-  @apply text-xl font-bold tracking-tight bg-gradient-to-r from-violet-400 to-indigo-400 bg-clip-text text-transparent;
+  @apply text-xl font-bold tracking-tight bg-clip-text text-transparent;
+  background-image: linear-gradient(
+    90deg,
+    var(--calc-accent-text) 0%,
+    var(--calc-accent) 100%
+  );
 }
 
 .calculator-header-actions {
@@ -42,21 +77,42 @@
 }
 
 .mode-toggle {
-  @apply px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider bg-slate-800/60 border border-slate-700/50 hover:bg-slate-800 hover:border-slate-600 transition-all active:scale-95 duration-100;
+  @apply px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all active:scale-95 duration-100;
+  background: color-mix(in srgb, var(--calc-surface-elevated) 60%, transparent);
+  border: 1px solid color-mix(in srgb, var(--calc-border) 70%, transparent);
+  color: var(--calc-text);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
   cursor: pointer;
 
   &:hover {
+    background: var(--calc-surface-elevated);
+    border-color: var(--calc-accent);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--calc-focus-ring);
+    outline-offset: 2px;
   }
 }
 
 .history-toggle {
-  @apply p-2 rounded-lg bg-slate-800/60 border border-slate-700/50 hover:bg-slate-800 hover:border-slate-600 text-slate-300 hover:text-white transition-all active:scale-95 duration-100;
+  @apply p-2 rounded-lg transition-all active:scale-95 duration-100;
+  background: color-mix(in srgb, var(--calc-surface-elevated) 60%, transparent);
+  border: 1px solid color-mix(in srgb, var(--calc-border) 70%, transparent);
+  color: var(--calc-text-muted);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
   cursor: pointer;
 
   &:hover {
+    background: var(--calc-surface-elevated);
+    border-color: var(--calc-accent);
+    color: var(--calc-text);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--calc-focus-ring);
+    outline-offset: 2px;
   }
 }

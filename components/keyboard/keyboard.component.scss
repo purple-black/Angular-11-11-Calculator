@@ -28,15 +28,15 @@
   }
 
   &:focus-visible {
-    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.5);
-    border-color: rgba(139, 92, 246, 0.6);
+    box-shadow: 0 0 0 3px var(--calc-focus-ring, rgba(20, 184, 166, 0.5));
+    border-color: var(--calc-accent, #14b8a6);
   }
 }
 
 // Scientific buttons
 .btn-sci {
-  background: rgba(30, 41, 59, 0.5);
-  color: #94a3b8;
+  background: color-mix(in srgb, var(--calc-surface-elevated, #1e293b) 50%, transparent);
+  color: var(--calc-text-muted, #94a3b8);
   font-size: 0.95rem;
 
   @media (min-width: 768px) {
@@ -44,15 +44,15 @@
   }
 
   &:hover {
-    background: rgba(30, 41, 59, 0.8);
-    color: #e2e8f0;
+    background: color-mix(in srgb, var(--calc-surface-elevated, #1e293b) 80%, transparent);
+    color: var(--calc-text, #f8fafc);
   }
 }
 
 // Number buttons
 .btn-num {
   background: rgba(255, 255, 255, 0.05);
-  color: #f8fafc;
+  color: var(--calc-text, #f8fafc);
 
   &:hover {
     background: rgba(255, 255, 255, 0.12);
@@ -61,8 +61,8 @@
 
 // Operator buttons
 .btn-operator {
-  background: rgba(139, 92, 246, 0.15);
-  color: #c084fc;
+  background: var(--calc-accent-soft, rgba(20, 184, 166, 0.15));
+  color: var(--calc-accent-text, #5eead4);
   font-size: 1.3rem;
 
   @media (min-width: 768px) {
@@ -70,55 +70,60 @@
   }
 
   &:hover {
-    background: rgba(139, 92, 246, 0.3);
-    color: #faf5ff;
+    background: var(--calc-accent-soft-hover, rgba(20, 184, 166, 0.3));
+    color: var(--calc-text, #f8fafc);
   }
 }
 
 // Action buttons (C, CE, Backspace)
 .btn-action {
-  background: rgba(244, 63, 94, 0.1);
-  color: #fb7185;
+  background: var(--calc-danger-soft, rgba(244, 63, 94, 0.1));
+  color: var(--calc-danger, #fb7185);
 
   @media (min-width: 768px) {
     font-size: 1.35rem;
   }
 
   &:hover {
-    background: rgba(244, 63, 94, 0.2);
+    background: var(--calc-danger-soft-hover, rgba(244, 63, 94, 0.2));
     color: #fff1f2;
   }
 }
 
 // Grouping buttons (parentheses)
 .btn-group {
-  background: rgba(45, 212, 191, 0.1);
-  color: #2dd4bf;
+  background: var(--calc-group-soft, rgba(45, 212, 191, 0.1));
+  color: var(--calc-group, #2dd4bf);
 
   @media (min-width: 768px) {
     font-size: 1.35rem;
   }
 
   &:hover {
-    background: rgba(45, 212, 191, 0.2);
+    background: var(--calc-group-soft-hover, rgba(45, 212, 191, 0.2));
     color: #f0fdfa;
   }
 }
 
-// Equal button (highly stylized glowing action)
+// Equal button
 .btn-equal {
-  background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+  background: linear-gradient(
+    135deg,
+    var(--calc-accent, #14b8a6) 0%,
+    var(--calc-accent-strong, #0f766e) 100%
+  );
   color: #ffffff;
-  box-shadow: 0 4px 12px rgba(109, 40, 217, 0.3);
+  box-shadow: 0 4px 12px var(--calc-accent-glow, rgba(15, 118, 110, 0.35));
   font-size: 1.3rem;
   border: none;
+
   @media (min-width: 768px) {
     font-size: 1.6rem;
   }
 
   &:hover {
-    box-shadow: 0 6px 16px rgba(109, 40, 217, 0.5);
-    filter: brightness(1.1);
+    box-shadow: 0 6px 16px var(--calc-accent-glow-strong, rgba(15, 118, 110, 0.55));
+    filter: brightness(1.08);
   }
 }
 

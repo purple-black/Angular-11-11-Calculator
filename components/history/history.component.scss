@@ -39,7 +39,7 @@
   }
 
   &:focus-visible {
-    outline: 2px solid rgba(139, 92, 246, 0.6);
+    outline: 2px solid var(--calc-focus-ring, rgba(20, 184, 166, 0.5));
     outline-offset: 2px;
   }
 }
